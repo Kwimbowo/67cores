@@ -14,7 +14,7 @@ const styles = {
     'border': {
         maxWidth: "150px",
         maxHeight: "150px",
-        border: "6px solid black",
+        border: "3px solid black",
         borderRadius: "24px",
         display: "flex",
         justifyContent: "center",

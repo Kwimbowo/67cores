@@ -118,8 +118,8 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     gap: 28,
-    fontFamily:
-      "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontFamily: "Noto Sans Variable",
+    fontWeight:"600",
     width: "100%",
     boxSizing: "border-box",
     contain: "inline-size",

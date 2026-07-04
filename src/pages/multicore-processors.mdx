@@ -11,37 +11,24 @@ import InteractiveCpu from '../components/InteractiveCpu.jsx';
 
 {/* main article */}
 ## Problem Solving Story
-Lorem ipsum dolor sit amet consectetur adipiscing elit. 
-Quisque faucibus ex sapien vitae pellentesque sem placerat. 
-In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. 
-Pulvinar vivamus fringilla lacus nec metus bibendum egestas. 
-Iaculis massa nisl malesuada lacinia integer nunc posuere. 
-Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+In the past, computer processors only had a single core. This meant they could only handle one task at a time, working through programs step-by-step in a linear fashion. Computers did exactly what they were told, when they were told.
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. 
-Quisque faucibus ex sapien vitae pellentesque sem placerat.
-In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. 
-Pulvinar vivamus fringilla lacus nec metus bibendum egestas. 
-Iaculis massa nisl malesuada lacinia integer nunc posuere. 
-Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+Around 2005, CPU companies like Intel and AMD started experimenting with something new: putting multiple cores on a single chip. This was a major breakthrough. Instead of one brain doing all the work, a processor could now have two, four, or even more brains working together.
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit. 
-Quisque faucibus ex sapien vitae pellentesque sem placerat. 
-In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. 
-Pulvinar vivamus fringilla lacus nec metus bibendum egestas. 
-Iaculis massa nisl malesuada lacinia integer nunc posuere. 
-Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+The result was a massive increase in computing power. The first dual-core processors hit the market, and while they were revolutionary at the time, they are now considered outdated. Today, quad-core and octa-core processors are standard in phones, laptops, and gaming consoles. They make devices faster and more efficient.
+
+Multicore processors changed the way computers work and are the reason modern devices can multitask with ease.
+
 
 ## Interactive Multicore CPU
 <InteractiveCpu client:load/>
 
 ## How to use interactive CPU
-Lorem ipsum dolor sit amet consectetur adipiscing elit. 
-Quisque faucibus ex sapien vitae pellentesque sem placerat. 
-In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. 
-Pulvinar vivamus fringilla lacus nec metus bibendum egestas. 
-Iaculis massa nisl malesuada lacinia integer nunc posuere. 
-Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+The Interactive Multicore CPU simulation lets you control how a processor handles computational tasks. You have three main settings to adjust: active cores, clock speed, and cooling capacity. Active cores determine how many of the eight processors are working on the task. More cores mean faster processing but also higher power consumption and heat output. Clock speed controls how fast each core runs, with higher speeds reducing execution time but dramatically increasing power usage. The cooling solution, available in 65W, 100W, or 150W options, sets the maximum heat the system can handle. If your configuration generates more heat than your cooling can manage, the CPU will throttle itself, reducing clock speed and slowing down performance.
+
+The display provides real-time feedback to help you evaluate your choices. You can see the actual power being consumed, the estimated execution time, and the status of each core. Green cores are active and running well, neutral cores are inactive, and red cores indicate throttling. The effective clock shows your actual speed after any throttling adjustments, while the total energy score represents power multiplied by time. Your goal is to minimize this score, which means finding the most efficient configuration rather than just the fastest one. A lower total energy score means you completed the task using less overall energy.
+
+To succeed, start with moderate settings like four cores at 2.5 GHz with 100W cooling. Adjust one parameter at a time and watch how the feedback changes. If you see red cores, reduce your clock speed or number of active cores to stay within cooling limits. The key lesson is that pushing settings too high leads to thermal throttling, which actually makes the task take longer. By balancing speed with efficiency, you can complete the 5000 unit workload using the least amount of energy possible.
 
 ## References:
 - https://en.wikipedia.org/wiki/Multi-core_processor

@@ -27,8 +27,8 @@ export default function InteractiveCpu() {
     const throttle = basePower > tdp;
     const effectiveClock = throttle ? clock * Math.sqrt(basePower) : clock
     const actualPower = throttle ? tdp : basePower;
-    const effeciency = throttle ? tdp / basePower : 1.0;
-    const execTime = WORKLOAD / (cores * effectiveClock * effeciency);
+    const efficiency = throttle ? tdp / basePower : 1.0;
+    const execTime = WORKLOAD / (cores * effectiveClock * efficiency);
     const energyScore = actualPower * execTime;
 
 
@@ -44,7 +44,7 @@ export default function InteractiveCpu() {
             activeCount={cores} 
             throttle={throttle} 
             power={actualPower}
-            effeciency={Math.round(effeciency * 100)}
+            efficiency={Math.round(efficiency * 100)}
             executionTime = {execTime}
         />
 
