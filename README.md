@@ -32,17 +32,17 @@
 There are many problem-solving stories to choose from in the entire history of computer architecture, but the struggle for our group lied in conceptualizing what the interactive component would be. We decided on a story relevant even to the technology we use today, and eventually ended up with a story that could easily be visualized in a webpage: the Power Wall problem of CPU computation speed (and the shift to multicore computing).
 
 ### Implementation
-Given the exhibit template, the actual implementation of the exhibit webpage was fairly straightforward. For the mid-milestone, we have managed to finish implementing the interactive component and most if not all of the contents of the exhibit; the webpage is more or less ready for deployment.
+Given the exhibit template, the actual implementation of the exhibit webpage was fairly straightforward. For the mid-milestone, we have managed to finish implementing the interactive component and most, if not all of the contents of the exhibit; the webpage is more or less ready for deployment.
 
 ### What we learned
-From the problem-solving story our group chose, we learned about how computers mostly only had single-core CPUs back then and how slow they were at multitasking relative to their performance in individual applications compared to the computers we have today, and from this we gained appreciation for the multicore technology that is used by all the devices we use today, as well as for the people who pioneered this technology. We also learned from the story about the power wall problem that limited the max single-core frequency of CPUs, for which multicore technology was a workaround to keep increasing CPU performance wihout having to focus on single-core frequency.
+From the problem-solving story our group chose, we learned about how computers mostly only had single-core CPUs back then and how slow they were at multitasking relative to their performance in individual applications compared to the computers we have today, and from this we gained appreciation for the multicore technology that is in all the devices we use today but taken for granted, as well as for the people who pioneered this technology. We also learned from the story about the power wall problem that limited the max single-core frequency of CPUs, for which multicore technology was a workaround to keep increasing CPU performance wihout having to focus on single-core frequency.
 
 ### What's next (for final submission)
 With the current state of the exhibit webpage already being ready for deployment, the group plans to further improve the design and UI of the interactive component, add more text content and information further expounding on multicore processors, and implement revisions as needed by the course instructor.
 
 ## Generative AI Use Disclosure
 During the preparation of this exhibit webpage, the group used the following generative AI tools and/or services:
-- ![**Gemini**](https://gemini.google.com/) was used to streamline learning programming in React for the interactive component in this project, as well as for recommendations in making the code written by the authors more clean, readable, and efficient.
+- [**Gemini**](https://gemini.google.com/) was used to streamline learning programming in React for the interactive component in this project, as well as for recommendations in making the code written by the authors more clean, readable, and efficient.
 
 After using this tool/service, the authors reviewed and edited the content as needed and take full responsibility for the content of the publication.
 
