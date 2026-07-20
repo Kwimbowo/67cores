@@ -2,10 +2,11 @@
 export default function CpuCore({ id = "#", active, throttle, ...rest }) {
     const statusStyle = !active ? styles.inactive : (throttle ? styles.throttle : styles.active);
     const coreStyle = { ...styles.border, ...statusStyle };
+	const coreText = active ? <p style={styles.label}>CORE {id}</p> : null
     return <>
         <style>{keyframes}</style>
         <div style={coreStyle} className={(throttle && active) ? "cpu-core-throttle" : undefined}>
-            <p style={styles.label}>CORE {id}</p>
+            {coreText}
         </div>
     </>;
 }
@@ -59,7 +60,7 @@ const styles = {
     },
 }
 
-// Glowing effect when cpiu throttling
+// Glowing effect when CPU throttling
 const keyframes = `
 @keyframes throttle-flash {
     0%, 100% { 
