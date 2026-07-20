@@ -25,7 +25,7 @@ export default function InteractiveCpu() {
     const WORKLOAD = 5000;
     const basePower = cores * clock**2 * 1.5 + cores * 5;
     const throttle = basePower > tdp;
-    const effectiveClock = throttle ? clock * Math.sqrt(basePower) : clock
+    const effectiveClock = throttle ? clock * Math.sqrt(tdp / basePower) : clock
     const actualPower = throttle ? tdp : basePower;
     const efficiency = throttle ? tdp / basePower : 1.0;
     const execTime = WORKLOAD / (cores * effectiveClock * efficiency);
@@ -57,7 +57,7 @@ export default function InteractiveCpu() {
         {/* Table of extra values */}
         <StatusTable
             throttle={throttle} 
-            effectiveClock={Math.round(effectiveClock)}
+            effectiveClock={Math.round(effectiveClock * 100)/100}
             energyScore={Math.round(energyScore)}
         />
 
