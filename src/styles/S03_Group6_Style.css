@@ -47,7 +47,7 @@ html:has(.multicore-exhibit) body {
     overflow-x: hidden;
 }
 
-html:has(.multicore-exhibit) .article {
+html:has(.multicore-exhibit) .article{
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -85,7 +85,6 @@ html:has(.multicore-exhibit) .exhibitlink:hover{
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
-    /* Shifting this to -2 so it stays visible beneath the content blocks */
     z-index: -2 !important; 
     pointer-events: none !important;
     transform: none !important; 
@@ -201,8 +200,7 @@ html:has(.multicore-exhibit) .subtitle {
 html:has(.multicore-exhibit) .header__titleblock,
 html:has(.multicore-exhibit) .article,
 html:has(.multicore-exhibit) .content__titlemeta,
-html:has(.multicore-exhibit) .exhibitlink,
-html:has(.multicore-exhibit) .toc {
+html:has(.multicore-exhibit) .exhibitlink{
     background: rgba(34, 37, 48, 0.9) !important;
     backdrop-filter: blur(8px) !important;
     -webkit-backdrop-filter: blur(8px) !important;
@@ -295,6 +293,15 @@ html:has(.multicore-exhibit) footer {
     border-top: 1px solid var(--borderS) !important;
     color: var(--mutedS) !important;
     font-family: monospace !important;
+}
+html:has(.multicore-exhibit) .toc{
+    background: rgba(34, 37, 48, 0.15) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border: 1px solid var(--borderS) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.25s ease-in-out !important;
+    z-index: 1 !important;
 }
 
 @keyframes dataStream {
