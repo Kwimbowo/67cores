@@ -9,6 +9,7 @@ readingTime: "6-7 minutes"
 {/* component imports */}
 import InteractiveCpu from '../components/InteractiveCpu.jsx';
 import Background from '../components/S03_Group6_Background.astro';
+import ComparisonTable from '../components/ComparisonTable.jsx';
 
 <div class="multicore-exhibit">
 <Background />
@@ -34,8 +35,9 @@ The transition to multicore architecture originally took root in heavy-duty ente
 
 A multicore processor functions by dividing software instructions into separate, independent paths of execution called threads. In a symmetric multiprocessing environment, the operating system treats each physical core as a distinct logical entity. When you run an application, the OS schedules different tasks across these cores simultaneously. The cores coordinate with each other using shared memory frameworks and internal communication lines to ensure data stays synchronized without creating computational bottlenecks or data corruption.
 
+<ComparisonTable client:load/>
 
-## Interactive Multicore CPU
+## Interactive Multicore CPU Model
 <InteractiveCpu client:load/>
 
 ## How It Works

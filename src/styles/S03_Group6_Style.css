@@ -228,6 +228,11 @@ html:has(.multicore-exhibit) .toc:hover {
     letter-spacing: 1px;
     border-bottom: 1px dashed var(--accentS) !important; 
     padding-bottom: 0.5rem;
+  	margin-top: 2.5rem;
+}
+
+.multicore-exhibit h2:first-of-type {
+  margin-top: 0rem;
 }
 
 .multicore-exhibit p,
