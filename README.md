@@ -9,7 +9,6 @@
     - [Conceptualization](#conceptualization)
     - [Implementation](#implementation)
     - [What We Learned](#what-we-learned)
-    - [What's Next](#whats-next-for-final-submission)
 - [Generative AI Use Disclosure](#generative-ai-use-disclosure)
 - [Tech Stack Plan](#tech-stack-plan)
     - [Problem Solving Story](#problem-solving-story)
@@ -37,14 +36,17 @@
 ### Conceptualization
 There are many problem-solving stories to choose from in the entire history of computer architecture, but the struggle for our group lied in conceptualizing what the interactive component would be. We decided on a story relevant even to the technology we use today, and eventually ended up with a story that could easily be visualized in a webpage: the Power Wall problem of CPU computation speed (and the shift to multicore computing).
 
+To expound on this problem and the story on how it was solved, we decided to explain the trends of microprocessors for the past few decades, showing how the performance, clock speed, and power disspiation for single-core processors increased through the years, and highlighting the point (sometime in 2005) where processors hit a bottleneck for increasing single-core performance because of the increase in power disspiation, which started the trend of multicore processors and increasing the number of logical cores instead of solely focusing on single-core performance. We also decided to expound on the technology of the multicore CPU along with its history, and gave a simplified explanation of how multicore CPUs are faster and more efficient than single-core ones through an analogy (chefs in a restaurant).
+
+To help with visualizing all these information, we decided to add a graph to explain the trends of microprocessors, images to show how the appearance of processors changed throughout the years, and another interactive component for calculating and visualizing CPU power dissipation.
+
 ### Implementation
 Given the exhibit template, the actual implementation of the exhibit webpage was fairly straightforward; the interactive component was programmed with React, and the text contents of the page were simply typed out in Markdown because the template handled the structure of the webpage and allowed for writing it in a ```.mdx``` file. For the mid-milestone, we have managed to finish implementing the interactive component and most, if not all of the contents of the exhibit; the webpage is more or less ready for deployment.
 
+For the final submission, the webpage's visual design and styles were completely overhauled. Additional information and visual aids were implemented for the Problem Solving Story and on the discussion of multicore CPUs. For the latter topic, a new interactive component was also implemented in React. 
+
 ### What we learned
 From the problem-solving story our group chose, we learned about how computers mostly only had single-core CPUs back then and how slow they were at multitasking relative to their performance in individual applications compared to the computers we have today, and from this we gained appreciation for the multicore technology that is in all the devices we use today but taken for granted, as well as for the people who pioneered this technology. We also learned from the story about the power wall problem that limited the max single-core frequency of CPUs, for which multicore technology was a workaround to keep increasing CPU performance without having to focus on single-core frequency.
-
-### What's next (for final submission)
-With the current state of the exhibit webpage already being ready for deployment, the group plans to further improve the design and UI of the interactive component, add more text content and information further expounding on multicore processors, and implement revisions as needed by the course instructor.
 
 ## Generative AI Use Disclosure
 During the preparation of this exhibit webpage, the group used the following generative AI tools and/or services:
@@ -95,12 +97,26 @@ energyScore = actualPower × execTime
 ![thermal throttling](https://github.com/Kwimbow/ARCH2/blob/main/public/style-guide-ref-2.png)
 
 ## References:
-- https://en.wikipedia.org/wiki/Multi-core_processor
-- https://www.cs.utexas.edu/~lin/cs380p/Free_Lunch.pdf
-- https://www.edn.com/future-of-computers-part-2-the-power-wall/ 
-- https://en.wikipedia.org/wiki/Voltage_and_frequency_scaling
-- https://www.sciencedirect.com/topics/computer-science/dynamic-power-consumption
-- https://www.sciencedirect.com/topics/computer-science/total-execution-time
-- https://76services.co.uk/thermal-throttling/thermal-throttling-vs-power-limit-throttling/
-- https://www.sciencedirect.com/topics/computer-science/dynamic-voltage-and-frequency-scaling
-- https://www.microchipusa.com/electrical-components/cpu-power-dissipation
+Alder Lake. (2026, Jun 18). *Wikipedia*. [Link](https://en.wikipedia.org/wiki/Alder_Lake)\
+AMD Athlon 64 X2 4200+. (n.d.). *TechPowerUp*. [Link](https://www.techpowerup.com/cpu-specs/athlon-64-x2-4200.c475)\
+AMD Phenom II X6 1090T BE. (n.d.). *TechPowerUp*. [Link](https://www.techpowerup.com/cpu-specs/phenom-ii-x6-1090t-be.c670)\
+AMD Ryzen 7 1700X. (n.d.). *TechPowerUp*. [Link](https://www.techpowerup.com/cpu-specs/ryzen-7-1700x.c1892)\
+AMD Ryzen 9 3950X. (2020, Nov 3). *TweakTown*. [Link](https://www.tweaktown.com/reviews/9255/amd-ryzen-9-3950x-zen-2-processor-review/index.html)\
+AMD Ryzen Threadripper 3970X. (2019, Nov 25). *ServeTheHome*. [Link](https://www.servethehome.com/amd-ryzen-threadripper-3970x-review-32-cores-of-madness/)\
+Athlon 64 X2. (2026, Feb 2). *Wikipedia*. [Link](https://en.wikipedia.org/wiki/Athlon_64_X2)\
+Cass, S. (2024, Mar 15). Chip Hall of Fame: Intel 4004. *IEEE Spectrum*. [Link](https://spectrum.ieee.org/chip-hall-of-fame-intel-4004-microprocessor)\
+Des, & Des. (2023, Jul 28). Thermal Throttling vs Power Limit Throttling. *76 Services*. [Link](https://76services.co.uk/thermal-throttling/\thermal-throttling-vs-power-limit-throttling/)\
+Fish, R. (2012, Jan 6). Future of computers – Part 2: The Power Wall. *EDN*. [Link](https://www.edn.com/future-of-computers-part-2-the-power-wall/)\
+Harris, D. M., & Harris, S. L. (2012). From zero to one. *Elsevier eBooks* (pp. 2–52). [Link](https://doi.org/10.1016/b978-0-12-394424-5.00001-x)\
+IBM POWER4 MCM package. (n.d.). *OkQubit*. [Link](https://www.okqubit.net/power4/)\
+Intel Core 2 Quad Q6600. (n.d.). *TechPowerUp*. [Link](https://www.techpowerup.com/cpu-specs/core-2-quad-q6600-95w.c403)\
+Intel Core i7-980X. (2014). *Guru3D*. [Link](https://www.guru3d.com/review/intel-core-i7-980x-review/)\
+Intel Pentium D 920. (n.d.). *TechPowerUp*. [Link](https://www.techpowerup.com/cpu-specs/pentium-d-920.c327)\
+Koren, I., & Krishna, C. (2011). Temperature-aware computing. *Sustainable Computing*, 1(1), 46–56. [Link](https://doi.org/10.1016/j.suscom.2010.10.004)\
+Microchip USA. (n.d.). *CPU Power Dissipation*. [Link](https://www.microchipusa.com/electrical-components/cpu-power-dissipation)\
+Buyya, R., Rajagopal, S. M., & Supriya, M. (2023). FedSDM for ECG data. *Internet of Things*, 22, 100784. [Link](https://doi.org/10.1016/j.iot.2023.100784)\
+Rupp, K. (2018, Feb 15). *42 Years of Microprocessor Trend Data*. [Link](https://www.karlrupp.net/2018/02/42-years-of-microprocessor-trend-data/)\
+Ishfaq, A., Ranka, S., Sheikh, H. F., & Wang, Z. (2011). Thermal-aware scheduling techniques. *Sustainable Computing*, 2(3), 151–169. [Link](https://doi.org/10.1016/j.suscom.2011.06.005)\
+Sutter, H. (2009). The Free Lunch Is Over. *Dr. Dobb's Journal*. [Link](https://www.cs.utexas.edu/~lin/cs380p/Free_Lunch.pdf)\
+Team, R. (2025, Dec 27). Single-Core vs Multi-Core CPUs. *RevisionDojo*. [Link](https://www.revisiondojo.com/blog/single-core-vs-multi-core-processors-explained)\
+Venu, B. (2011). Multi-core processors – An overview. *arXiv*. [Link](https://arxiv.org/abs/1110.3535)
