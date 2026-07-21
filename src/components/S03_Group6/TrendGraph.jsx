@@ -57,7 +57,6 @@ export default function TrendGraph() {
 
             <div style={styles.chartWrapper}>
                 <svg viewBox={`0 0 ${width} ${height}`} style={styles.svg}>
-                    {/* Horizontal Gridlines & Y-Axis Labels */}
                     {[0, 1, 2, 3, 4, 5, 6, 7].map((exp) => {
                         const y = getY(Math.pow(10, exp));
                         return (
@@ -84,7 +83,6 @@ export default function TrendGraph() {
                         );
                     })}
 
-                    {/* Vertical Gridlines & X-Axis Labels */}
                     {[1970, 1980, 1990, 2000, 2010, 2020].map((year) => {
                         const x = getX(year);
                         return (
@@ -110,7 +108,6 @@ export default function TrendGraph() {
                         );
                     })}
 
-                    {/* Power Wall Vertical Dashed Line */}
                     <line
                         x1={wallX}
                         y1={padding.top}
@@ -122,7 +119,6 @@ export default function TrendGraph() {
                         strokeOpacity="0.8"
                     />
 
-                    {/* Subdued Power Wall Callout Box */}
                     <g transform={`translate(${wallX - 8}, ${padding.top + 10})`}>
                         <rect
                             x="-115"
@@ -157,7 +153,6 @@ export default function TrendGraph() {
                         </text>
                     </g>
 
-                    {/* Data Series Polylines and Circles */}
                     {seriesMeta.map((s) => {
                         const pts = data[s.id];
                         const pointsString = pts.map((p) => `${getX(p.year)},${getY(p.val)}`).join(" ");
@@ -192,7 +187,6 @@ export default function TrendGraph() {
                     })}
                 </svg>
 
-                {/* High-Contrast Color Badge Legend */}
                 <div style={styles.legend}>
                     {seriesMeta.map((s) => (
                         <div key={s.id} style={styles.legendItem}>

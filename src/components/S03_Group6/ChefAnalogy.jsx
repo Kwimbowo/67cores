@@ -124,13 +124,11 @@ const styles = {
         background: "rgba(255, 77, 77, 0.2)",
         border: "1px solid #ff4d4d",
         boxShadow: "0 0 15px rgba(255, 77, 77, 0.4)",
-        animation: "shake 0.5s infinite",
     },
     chillChef: {
         background: "rgba(77, 255, 160, 0.2)",
         border: "1px solid #71f594",
         boxShadow: "0 0 15px #1fa64b",
-        animation: "shake 0.5s infinite",
     },
     orderQueue: {
         marginTop: "8px",
