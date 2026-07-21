@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import ramsay from "../../assets/S03_Group6_Ramsay.png";
 export default function ChefAnalogy() {
     const [tick, setTick] = useState(0);
     const [tickMultiple, setTickMultiple] = useState(0);
@@ -35,7 +35,7 @@ export default function ChefAnalogy() {
                 </div>
                 <div style={styles.chefContainer}>
                     <div style={{...styles.chef, ...styles.sweatingChef}}>
-                        <img src='/src/assets/S03_Group6_Ramsay.png' alt="Stressed Chef" style={{height: "70px"}}/>
+                        <img src={ramsay.src}  alt="Stressed Chef" style={{height: "70px"}}/>
                     </div>
                 </div>
                 <div style={styles.orderQueue}>
@@ -53,7 +53,7 @@ export default function ChefAnalogy() {
                     {[1, 2, 3, 4].map((i) => (
                         <div key={i} style={styles.multiChefColumn}>
                             <div style={{...styles.chef,...styles.chillChef}}>
-                                <img src='/src/assets/S03_Group6_Ramsay.png' alt="Chill Chef" style={{height: "70px"}}/>
+                                <img src={ramsay.src} alt="Chill Chef" style={{height: "70px"}}/>
                             </div>
                             <div style={styles.multiOrderQueue}>
                                 {Array(4).fill('🥪').map((sandwich, index) => (
