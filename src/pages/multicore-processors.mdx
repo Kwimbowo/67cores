@@ -49,14 +49,6 @@ A multicore processor functions by dividing software instructions into separate,
 ## Interactive Multicore CPU Model
 <InteractiveCpu client:load/>
 
-## How It Works
-
-The Interactive Multicore CPU simulation lets you control how a processor handles computational tasks. You have three main settings to adjust: active cores, clock speed, and cooling capacity. Active cores determine how many of the eight cores of the processor are working on the task. Using more active cores generally improves processing performance, but also increases power consumption and heat output because more of the processor is working simultaneously. Clock speed controls how fast each core runs. Higher clock speeds reduce execution time but significantly increase power consumption. Cooling capacity represents the maximum amount of CPU heat (measured in watts) that the cooling system can dissipate.
-
-The display provides real-time feedback to help you evaluate your choices. You can see the current CPU power consumption (actual power), the estimated execution time, and the status of each core. Green cores are active and running well, neutral cores are inactive, and red cores indicate thermal throttling, where the processor automatically reduces its speed to avoid exceeding the cooling limit. The effective clock shows your actual CPU frequency after any throttling adjustments, while the total energy score is calculated as power multiplied by execution time, representing the total energy required to complete the workload. Your goal is to minimize this score. The most energy-efficient configuration is not always the fastest, so aim for the lowest energy score rather than the shortest execution time.
-
-To succeed, start with moderate settings like four cores at 2.5 GHz with 100W cooling. Adjust one parameter at a time and watch how the feedback changes. If you see red cores, reduce your clock speed or number of active cores to stay within cooling limits. The key lesson is that increasing the clock speed or number of active cores beyond the cooling capacity causes thermal throttling, which actually makes the task take longer. Experiment with different combinations to discover the balance between performance, power consumption, and cooling that minimizes the total energy score.
-
 ## References
 - https://arxiv.org/pdf/1110.3535
 - https://www.cs.utexas.edu/~lin/cs380p/Free_Lunch.pdf

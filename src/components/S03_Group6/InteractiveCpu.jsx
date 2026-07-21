@@ -10,15 +10,15 @@ const INFO_DICT = {
     },
     "Active Cores": {
         title: "Active Cores",
-        text: "Determines how many of the 8 processor cores are working. Using more cores splits the workload to process it faster, but increases overall power consumption and heat output."
+        text: "Determines how many of the 8 processor cores are working. Using more cores splits the workload to process it faster (lowering Execution Time), but increases overall power consumption and heat output."
     },
     "Clock Speed": {
         title: "Clock Speed (GHz)",
-        text: "Controls how fast each core runs. Higher speeds reduce execution time but exponentially increase power consumption, risking overheating."
+        text: "Controls how fast each core runs. Higher speeds reduce Execution Time but exponentially increase power consumption, risking overheating."
     },
     "TDP": {
         title: "Cooling Solution (TDP)",
-        text: "Thermal Design Power (TDP) represents the maximum heat (in watts) the system can dissipate. If the CPU generates more heat than this, it will throttle to save itself."
+        text: "Thermal Design Power (TDP) represents the maximum heat (in watts) the system can dissipate. If the CPU generates more heat than this limit, it will throttle to save itself."
     },
     "Actual Power": {
         title: "Actual Power",
@@ -26,7 +26,7 @@ const INFO_DICT = {
     },
     "Efficiency": {
         title: "Efficiency",
-        text: "A measure of how well the CPU is operating. It remains at 100% unless the CPU overheats. Throttling heavily penalizes efficiency."
+        text: "A measure of how well the CPU is operating. It remains at 100% unless the CPU overheats. Throttling heavily penalizes efficiency, wasting energy."
     },
     "Effective Clock": {
         title: "Effective Clock",
@@ -34,11 +34,11 @@ const INFO_DICT = {
     },
     "Execution Time": {
         title: "Execution Time",
-        text: "The estimated time required to process the workload. Throttling increases this time, as the CPU must slow down to cool off."
+        text: "The estimated time required to process the workload. Your goal is to minimize this without causing thermal throttling (which forces the CPU to slow down and drastically increases this time)."
     },
     "Energy Score": {
         title: "Total Energy Score (J)",
-        text: "Calculated as Actual Power × Execution Time. This is your final score. A lower score means you completed the task using less energy!"
+        text: "Calculated as Actual Power × Execution Time. This represents the total energy consumed. A truly optimal configuration balances a low Energy Score with a fast Execution Time!"
     }
 };
 
@@ -67,10 +67,15 @@ export default function InteractiveCpu() {
 
     return (
         <div style={styles.container}>
-
-            <div style={styles.goalBox}>
-                <h3 style={styles.goalTitle}>YOUR GOAL</h3>
-                <p style={styles.goalText}>Process the 5000-unit workload using the least amount of energy (lowest Energy Score). Avoid thermal throttling by balancing your Clock Speed and Active Cores with your Cooling Solution.</p>
+            <div style={styles.topBoxesContainer}>
+                <div style={styles.goalBox}>
+                    <div style={styles.goalTitle}>YOUR GOAL</div>
+                    <p style={styles.goalText}>Process the 5000-unit workload as quickly as possible (lowest Execution Time) while using the least amount of energy (lowest Energy Score). Avoid thermal throttling by balancing your Clock Speed and Active Cores with your Cooling Solution.</p>
+                </div>
+                <div style={styles.hintBox}>
+                    <div style={styles.hintTitle}>PRO TIP</div>
+                    <p style={styles.hintText}>The fastest configuration isn't always the most efficient. If you see red cores, you've hit the thermal limit and are wasting power. Try dropping your clock speed slightly to see efficiency gains!</p>
+                </div>
             </div>
 
             <CpuContainer
@@ -123,16 +128,27 @@ const styles = {
         gap: "16px",
         width: "100%",
     },
+    topBoxesContainer: {
+        display: "flex",
+        gap: "16px",
+        width: "100%",
+    },
     goalBox: {
+        flex: 1,
         background: "rgba(0, 180, 216, 0.05)",
         border: "1px dashed var(--accentS)",
         borderRadius: "12px",
         padding: "16px",
         textAlign: "center",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
     },
     goalTitle: {
         color: "var(--accentS)",
-        margin: "0 0 8px 0",
+        margin: "0 0 12px 0",
+        paddingBottom: "8px",
+        borderBottom: "1px dashed var(--accentS)",
         fontSize: "1rem",
         fontFamily: "monospace",
         fontWeight: "bold",
@@ -143,6 +159,34 @@ const styles = {
         color: "var(--textS)",
         fontSize: "0.95rem",
         lineHeight: "1.4",
+    },
+    hintBox: {
+        flex: 1,
+        background: "rgba(255, 191, 0, 0.05)",
+        border: "1px dashed rgba(255, 191, 0, 0.4)",
+        borderRadius: "12px",
+        padding: "16px",
+        textAlign: "center",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+    },
+    hintTitle: {
+        color: "#ffbf00",
+        margin: "0 0 12px 0",
+        paddingBottom: "8px",
+        borderBottom: "1px dashed rgba(255, 191, 0, 0.4)",
+        fontSize: "1rem",
+        fontFamily: "monospace",
+        fontWeight: "bold",
+        letterSpacing: "1px",
+    },
+    hintText: {
+        margin: 0,
+        color: "var(--textS)",
+        fontSize: "0.95rem",
+        lineHeight: "1.4",
+        fontStyle: "italic",
     },
     infoConsole: {
         background: "#0a0c10",
