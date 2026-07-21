@@ -4,8 +4,6 @@ export default function PowerFormula() {
 	const [voltage, setVoltage] = useState(1.2);
 	const [frequency, setFrequency] = useState(3.0);
 	const [capacitance, setCapacitance] = useState(15);
-
-	// Math fixed: Capacitance capped at 25 brings max power to realistic 281.25W
 	const power = (capacitance * voltage ** 2 * frequency).toFixed(2);
 	const maxPower = 25 * 1.5 ** 2 * 5.0;
 	const powerPercent = (Number(power) / maxPower) * 100;
@@ -20,26 +18,27 @@ export default function PowerFormula() {
 				<span style={{color:"#3cd66a",textShadow:"0 0 6px rgba(60,214,106,.4)"}}>Frequency</span>
 			</div>
 
-			{/* Collapsible Info Panel */}
 			<details style={styles.accordion}>
 				<summary style={styles.accordionSummary}>
-					<span style={{marginRight: "6px"}}> </span>What do these variables mean?
+					What do these variables mean?
 				</summary>
 				<div style={styles.accordionContent}>
-					<p style={styles.accordionText}>
-						<strong style={{color: "#ffffff"}}>Capacitance (C):</strong> Represents the physical size and number of transistors. This is mostly fixed by the physical chip design.
-					</p>
-					<p style={styles.accordionText}>
-						<strong style={{color: "#ff4d4d"}}>Voltage (V):</strong> The electrical pressure. Because it scales <strong>quadratically (V²)</strong>, even slight increases cause massive heat spikes.
-					</p>
-					<p style={styles.accordionText}>
-						<strong style={{color: "#3cd66a"}}>Frequency (f):</strong> The clock speed, or billions of cycles per second. Increasing this scales the power linearly.
-					</p>
+					<div style={styles.accordionRow}>
+						<span style={{...styles.accordionLabel, color: "#ffffff"}}>Capacitance (C):</span>
+						<span style={styles.accordionDesc}>The CPU's ability to store electrical charge. It is determined by the physical geometry and total number of transistors.</span>
+					</div>
+					<div style={styles.accordionRow}>
+						<span style={{...styles.accordionLabel, color: "#ff4d4d"}}>Voltage (V):</span>
+						<span style={styles.accordionDesc}>Power scales quadratically (V²) with voltage, so slight increases result in drastically higher power consumption and heat.</span>
+					</div>
+					<div style={styles.accordionRow}>
+						<span style={{...styles.accordionLabel, color: "#3cd66a"}}>Frequency (f):</span>
+						<span style={styles.accordionDesc}>The processor's clock speed. Power scales linearly with frequency, yielding a proportional increase in power draw.</span>
+					</div>
 				</div>
 			</details>
 
 			<div style={styles.controls}>
-				{/* Capacitance Control */}
 				<div style={styles.controlGroup}>
 					<div style={styles.labelRow}>
 						<label style={styles.label}>Capacitance (C): <span style={{color:"#ffffff"}}>{capacitance.toFixed(1)}</span></label>
@@ -49,7 +48,6 @@ export default function PowerFormula() {
 					        display={`${capacitance.toFixed(1)}`} accentColor="#ffffff"/>
 				</div>
 
-				{/* Voltage Control */}
 				<div style={styles.controlGroup}>
 					<div style={styles.labelRow}>
 						<label style={styles.label}>Voltage (V): <span style={{color:"#ff4d4d"}}>{voltage.toFixed(2)}V</span></label>
@@ -59,7 +57,6 @@ export default function PowerFormula() {
 					        display={`${voltage.toFixed(2)}V`} accentColor="#ff4d4d"/>
 				</div>
 
-				{/* Frequency Control */}
 				<div style={styles.controlGroup}>
 					<div style={styles.labelRow}>
 						<label style={styles.label}>Frequency (f): <span style={{color:"#3cd66a"}}>{frequency.toFixed(2)}GHz</span></label>
@@ -141,12 +138,24 @@ const styles={
 		flexDirection: "column",
 		gap: "8px",
 	},
-	accordionText: {
+	accordionRow: {
+		display: "flex",
+		gap: "8px",
+		alignItems: "baseline",
+	},
+	accordionLabel: {
+		fontWeight: "bold",
+		fontSize: "0.85rem",
+		whiteSpace: "nowrap",
+	},
+	accordionDesc: {
 		margin: 0,
-		color: "var(--mutedS)",
+		color: "var(--textS)",
 		fontSize: "0.85rem",
 		fontWeight: 400,
 		lineHeight: "1.4",
+		flex: 1,
+		textAlign: "left",
 	},
 	controls: {
 		display:"flex",

@@ -1,26 +1,25 @@
 export default function TrendGraph() {
-    // Sampling representative real data points from your provided .dat files
     const data = {
-        transistors: [ // 10^3
+        transistors: [
             { year: 1971.8, val: 2.3 }, { year: 1979.5, val: 29.1 }, { year: 1989.4, val: 1207.9 },
             { year: 1999.4, val: 21673.9 }, { year: 2005.7, val: 232909.6 }, { year: 2010.1, val: 410469.8 },
             { year: 2014.8, val: 5700000.0 }
         ],
-        specint: [ // SpecINT x 10^3
+        specint: [
             { year: 1988.6, val: 83.5 }, { year: 1995.4, val: 1027.3 }, { year: 2000.6, val: 4782.8 },
             { year: 2005.7, val: 17000.7 }, { year: 2010.3, val: 42000.0 }, { year: 2014.8, val: 66000.4 }
         ],
-        frequency: [ // MHz
+        frequency: [
             { year: 1971.8, val: 0.7 }, { year: 1982.3, val: 6.0 }, { year: 1993.0, val: 198.0 },
             { year: 2000.6, val: 1000.0 }, { year: 2005.7, val: 3190.8 }, { year: 2010.1, val: 2308.2 },
             { year: 2014.8, val: 3700.0 }
         ],
-        watts: [ // Watts
+        watts: [
             { year: 1971.8, val: 0.4 }, { year: 1988.6, val: 3.9 }, { year: 1995.4, val: 50.0 },
             { year: 2000.6, val: 48.6 }, { year: 2005.7, val: 128.6 }, { year: 2010.3, val: 168.4 },
             { year: 2014.8, val: 140.0 }
         ],
-        cores: [ // Logical Cores
+        cores: [
             { year: 1971.8, val: 1 }, { year: 1995.4, val: 1 }, { year: 2004.8, val: 2 },
             { year: 2007.6, val: 4 }, { year: 2010.1, val: 16 }, { year: 2014.8, val: 64 }
         ]
@@ -34,22 +33,19 @@ export default function TrendGraph() {
         { id: "cores", label: "Logical Cores", color: "#eab308" }
     ];
 
-    // SVG dimensions
     const width = 720;
     const height = 380;
     const padding = { left: 45, right: 35, top: 25, bottom: 45 };
 
-    // Logarithmic scale mapping: 10^0 (1) to 10^7 (10,000,000)
     const getX = (year) => padding.left + ((year - 1970) / 50) * (width - padding.left - padding.right);
     const getY = (val) => {
-        const logVal = Math.max(0, Math.log10(Math.max(1, val))); // Clamped to min 1 (10^0)
-        const logMax = 7; // 10^7
+        const logVal = Math.max(0, Math.log10(Math.max(1, val)));
+        const logMax = 7;
         return (height - padding.bottom) - (logVal / logMax) * (height - padding.top - padding.bottom);
     };
 
-    const wallX = getX(2005); // X coordinate for Year 2005
+    const wallX = getX(2005);
 
-    // Helper to convert exponent to readable labels. The first entry is empty to remove the "1".
     const formatYLabel = (exp) => {
         const labels = ["", "10", "100", "1K", "10K", "100K", "1M", "10M"];
         return labels[exp] || "";
@@ -61,7 +57,6 @@ export default function TrendGraph() {
 
             <div style={styles.chartWrapper}>
                 <svg viewBox={`0 0 ${width} ${height}`} style={styles.svg}>
-                    {/* Horizontal Log Scale Grid & Intuitive Y-Axis Ticks */}
                     {[0, 1, 2, 3, 4, 5, 6, 7].map((exp) => {
                         const y = getY(Math.pow(10, exp));
                         return (
@@ -88,7 +83,6 @@ export default function TrendGraph() {
                         );
                     })}
 
-                    {/* Vertical Year Grid & X-Axis Ticks */}
                     {[1970, 1980, 1990, 2000, 2010, 2020].map((year) => {
                         const x = getX(year);
                         return (
@@ -114,7 +108,6 @@ export default function TrendGraph() {
                         );
                     })}
 
-                    {/* DENNARD SCALING / POWER WALL VERTICAL LINE (c. 2005) */}
                     <line
                         x1={wallX}
                         y1={padding.top}
@@ -125,7 +118,6 @@ export default function TrendGraph() {
                         strokeDasharray="6 4"
                     />
 
-                    {/* Power Wall Label */}
                     <g transform={`translate(${wallX - 8}, ${padding.top + 10})`}>
                         <rect
                             x="-115"
@@ -145,7 +137,6 @@ export default function TrendGraph() {
                         </text>
                     </g>
 
-                    {/* Data Series Lines & Points */}
                     {seriesMeta.map((s) => {
                         const pts = data[s.id];
                         const pointsString = pts.map((p) => `${getX(p.year)},${getY(p.val)}`).join(" ");
@@ -172,7 +163,6 @@ export default function TrendGraph() {
                     })}
                 </svg>
 
-                {/* Static Legend */}
                 <div style={styles.legend}>
                     {seriesMeta.map((s) => (
                         <div

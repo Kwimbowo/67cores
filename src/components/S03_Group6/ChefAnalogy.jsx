@@ -5,93 +5,62 @@ export default function ChefAnalogy() {
     const [tickMultiple, setTickMultiple] = useState(0);
 
     useEffect(() => {
+        const interval = setInterval(() => {
+            setTick((prev) => (prev + 1) % 17);
+        }, 160);
+        return () => clearInterval(interval);
+    }, []);
 
-		const interval = setInterval(() => {
+    useEffect(() => {
+        if (tick === 0) {
+            setTickMultiple(0);
+        }
+    }, [tick]);
 
-			setTick((prev) => {
-
-				const next = (prev + 1) % 17;
-
-
-
-				if (next === 0) {
-
-					setTickMultiple(0);
-
-				}
-
-
-
-				return next;
-
-			});
-
-		}, 160);
-
-
-
-		return () => clearInterval(interval);
-
-	}, []);
-
-
-
-	useEffect(() => {
-
-		const interval = setInterval(() => {
-
-			setTickMultiple((prev) => (prev + 1) % 17);
-
-		}, 300);
-
-
-
-		return () => clearInterval(interval);
-
-	}, []);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTickMultiple((prev) => (prev + 1) % 17);
+        }, 300);
+        return () => clearInterval(interval);
+    }, []);
 
     const singleCoreOrders = tick;
     const multiCoreOrders = Math.min(tickMultiple, 4);
 
     return (
         <div style={styles.container}>
-            {/* Single Core / Single Chef */}
             <div style={styles.kitchen}>
                 <div style={styles.header}>
                     <h4 style={{color: "#ff4d4d", fontFamily: "monospace", fontSize: "1.3rem"}}>Single-Core</h4>
                 </div>
                 <div style={styles.chefContainer}>
                     <div style={{...styles.chef, ...styles.sweatingChef}}>
-                        <img src='/src/assets/S03_Group6_Ramsay.png' style={{
-		height: "70px"}}/>
+                        <img src='/src/assets/S03_Group6_Ramsay.png' alt="Stressed Chef" style={{height: "70px"}}/>
                     </div>
                 </div>
                 <div style={styles.orderQueue}>
-                    {Array(16).fill('🥪').map((burger, i) => (
-                        <span key={i} style={{ opacity: i < singleCoreOrders ? 1 : 0.2, transition: "0.2s" }}>{burger}</span>
+                    {Array(16).fill('🥪').map((sandwich, i) => (
+                        <span key={i} style={{ opacity: i < singleCoreOrders ? 1 : 0.2, transition: "0.2s" }}>{sandwich}</span>
                     ))}
                 </div>
             </div>
 
-            {/* Multi Core / Multiple Chefs */}
             <div style={styles.kitchen}>
                 <div style={styles.header}>
                     <h4 style={{color: "#3cd66a", fontFamily: "monospace", fontSize: "1.3rem"}}>Multi-Core</h4>
                 </div>
                 <div style={styles.multiChefContainer}>
-                    {[1, 2, 3, 4,].map((i) => (
-                        <div style={{display:"flex", flexDirection:"column", 
-        alignItems: "center",
-		justifyContent: "center",}}>
-							<div key={i} style={{...styles.chef,...styles.chillChef}}>
-								<img src='/src/assets/S03_Group6_Ramsay.png' style={{height: "70px"}}/>
-							</div>
-							<div style={styles.multiOrderQueue}>
-								{Array(4).fill('🥪').map((burger, i) => (
-									<span key={i} style={{ opacity: i < multiCoreOrders * 1 ? 1 : 0.2, transition: "0.2s" }}>{burger}</span>
-								))}
-							</div>
-						</div>
+                    {[1, 2, 3, 4].map((i) => (
+                        <div key={i} style={styles.multiChefColumn}>
+                            <div style={{...styles.chef,...styles.chillChef}}>
+                                <img src='/src/assets/S03_Group6_Ramsay.png' alt="Chill Chef" style={{height: "70px"}}/>
+                            </div>
+                            <div style={styles.multiOrderQueue}>
+                                {Array(4).fill('🥪').map((sandwich, index) => (
+                                    <span key={index} style={{ opacity: index < multiCoreOrders ? 1 : 0.2, transition: "0.2s" }}>{sandwich}</span>
+                                ))}
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>
@@ -129,15 +98,21 @@ const styles = {
         alignItems: "center",
     },
     multiChefContainer: {
-		columnGap:"4rem",
+        columnGap:"4rem",
         display: "flex",
         gap: "1rem",
         alignItems: "center",
-		justifyContent: "center",
+        justifyContent: "center",
+    },
+    multiChefColumn: {
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
     },
     chef: {
-		height: "1.5em",
-		width: "1em",
+        height: "1.5em",
+        width: "1em",
         fontSize: "3rem",
         position: "relative",
         background: "rgba(255,255,255,0.05)",
@@ -158,7 +133,7 @@ const styles = {
         animation: "shake 0.5s infinite",
     },
     orderQueue: {
-		marginTop:"8px",
+        marginTop:"8px",
         display: "grid",
         gridTemplateColumns: "repeat(8, 1fr)",
         gap: "5px",
@@ -167,14 +142,8 @@ const styles = {
         padding: "10px",
         borderRadius: "8px",
     },
-    queuesWrapper: {
-        display: "flex",
-        columnGap: "1rem",
-        width: "100%",
-        justifyContent: "center",
-    },
     multiOrderQueue: {
-		margin:"8px",
+        margin:"8px",
         display: "grid",
         gridTemplateColumns: "repeat(2, 2fr)",
         gap: "5px",
@@ -182,9 +151,5 @@ const styles = {
         background: "#0a0a0a",
         padding: "10px",
         borderRadius: "8px",
-    },
-    divider: {
-        width: "2px",
-        background: "var(--borderS)",
     }
 };
