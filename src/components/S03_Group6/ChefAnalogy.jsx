@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ramsay from "../../assets/S03_Group6_Ramsay.png";
+
 export default function ChefAnalogy() {
     const [tick, setTick] = useState(0);
     const [tickMultiple, setTickMultiple] = useState(0);
@@ -30,12 +31,12 @@ export default function ChefAnalogy() {
     return (
         <div style={styles.container}>
             <div style={styles.kitchen}>
-                <div style={styles.header}>
-                    <h4 style={{color: "#ff4d4d", fontFamily: "monospace", fontSize: "1.3rem"}}>Single-Core</h4>
+                <div style={{ ...styles.header, borderBottom: "1px dashed #ff4d4d" }}>
+                    <div style={{ color: "#ff4d4d", fontFamily: "monospace", fontSize: "1.3rem", fontWeight: "bold" }}>Single-Core</div>
                 </div>
                 <div style={styles.chefContainer}>
-                    <div style={{...styles.chef, ...styles.sweatingChef}}>
-                        <img src={ramsay.src}  alt="Stressed Chef" style={{height: "70px"}}/>
+                    <div style={{ ...styles.chef, ...styles.sweatingChef }}>
+                        <img src={ramsay.src} alt="Stressed Chef" style={{ height: "70px" }} />
                     </div>
                 </div>
                 <div style={styles.orderQueue}>
@@ -46,14 +47,14 @@ export default function ChefAnalogy() {
             </div>
 
             <div style={styles.kitchen}>
-                <div style={styles.header}>
-                    <h4 style={{color: "#3cd66a", fontFamily: "monospace", fontSize: "1.3rem"}}>Multi-Core</h4>
+                <div style={{ ...styles.header, borderBottom: "1px dashed #3cd66a" }}>
+                    <div style={{ color: "#3cd66a", fontFamily: "monospace", fontSize: "1.3rem", fontWeight: "bold" }}>Multi-Core</div>
                 </div>
                 <div style={styles.multiChefContainer}>
                     {[1, 2, 3, 4].map((i) => (
                         <div key={i} style={styles.multiChefColumn}>
-                            <div style={{...styles.chef,...styles.chillChef}}>
-                                <img src={ramsay.src} alt="Chill Chef" style={{height: "70px"}}/>
+                            <div style={{ ...styles.chef, ...styles.chillChef }}>
+                                <img src={ramsay.src} alt="Chill Chef" style={{ height: "70px" }} />
                             </div>
                             <div style={styles.multiOrderQueue}>
                                 {Array(4).fill('🥪').map((sandwich, index) => (
@@ -87,18 +88,17 @@ const styles = {
     },
     header: {
         textAlign: "center",
-        fontFamily: "monospace"
-    },
-    desc: {
-        fontSize: "0.85rem",
-        color: "var(--mutedS)",
+        fontFamily: "monospace",
+        width: "100%",
+        paddingBottom: "10px",
+        marginBottom: "12px",
     },
     chefContainer: {
         display: "flex",
         alignItems: "center",
     },
     multiChefContainer: {
-        columnGap:"4rem",
+        columnGap: "4rem",
         display: "flex",
         gap: "1rem",
         alignItems: "center",
@@ -133,7 +133,7 @@ const styles = {
         animation: "shake 0.5s infinite",
     },
     orderQueue: {
-        marginTop:"8px",
+        marginTop: "8px",
         display: "grid",
         gridTemplateColumns: "repeat(8, 1fr)",
         gap: "5px",
@@ -143,7 +143,7 @@ const styles = {
         borderRadius: "8px",
     },
     multiOrderQueue: {
-        margin:"8px",
+        margin: "8px",
         display: "grid",
         gridTemplateColumns: "repeat(2, 2fr)",
         gap: "5px",
