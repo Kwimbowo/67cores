@@ -85,14 +85,28 @@ export default function PowerFormula() {
 	);
 }
 
-function Slider({min,max,step,value,onChange,display,accentColor="#3cafd6"}){
-	const p=((value-min)/(max-min))*100;
-	return <div style={styles.sliderGroup}>
-		<input type="range" min={min} max={max} step={step} value={value} onChange={onChange}
-		       style={{...styles.slider,accentColor,
-				   background:`linear-gradient(90deg,${accentColor}40 0%,${accentColor}20 ${p}%,#16191b ${p}%,#16191b 100%)`}}/>
-		<span style={styles.valueTag}>{display}</span>
-	</div>;
+function Slider({min, max, step, value, onChange, display, accentColor="#3cafd6"}) {
+	const p = Math.max(0, Math.min(100, ((Number(value) - Number(min)) / (Number(max) - Number(min))) * 100));
+
+	return (
+		<div style={styles.sliderGroup}>
+			<input
+				type="range"
+				min={min}
+				max={max}
+				step={step}
+				value={String(value)}
+				onChange={onChange}
+				autoComplete="off"
+				style={{
+					...styles.slider,
+					accentColor,
+					background: `linear-gradient(90deg, ${accentColor}40 0%, ${accentColor}20 ${p}%, #16191b ${p}%, #16191b 100%)`
+				}}
+			/>
+			<span style={styles.valueTag}>{display}</span>
+		</div>
+	);
 }
 
 const styles={
