@@ -15,21 +15,21 @@ export default function CpuCore({ id = "#", active, throttle }) {
 
 const styles = {
     'border': {
-        maxWidth: "150px",
-        maxHeight: "150px",
+        maxWidth: "100px",
+        maxHeight: "100px",
         width: "100%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         aspectRatio: "1 / 1",
-        borderRadius: "16px",
+        borderRadius: "12px",
         border: "1px solid rgba(0, 0, 0, 0.4)",
         transition: "all 0.15s ease-in-out",
         boxSizing: "border-box",
     },
     'label': {
         fontWeight: '800',
-        fontSize: '1.3rem',
+        fontSize: '1rem',
         margin: 0,
         letterSpacing: "0.5px",
         textShadow: "0px -1px 1px rgba(0, 0, 0, 0.7), 0px 1px 1px rgba(120, 120, 120, 0.4)",
@@ -66,19 +66,11 @@ const keyframes = `
 @keyframes throttle-flash {
     0%, 100% { 
         background-color: #ff6b6b; 
-        box-shadow: 
-            inset 0 2px 3px rgba(255, 255, 255, 0.6), 
-            inset 0 -4px 10px rgba(0, 0, 0, 0.4), 
-            0 0 8px rgba(255, 77, 77, 0.4), 
-            0 4px 6px rgba(0, 0, 0, 0.6);
+        box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.6), inset 0 -4px 10px rgba(0, 0, 0, 0.4), 0 0 8px rgba(255, 77, 77, 0.4), 0 4px 6px rgba(0, 0, 0, 0.6);
     }
     50% { 
         background-color: #d63030; 
-        box-shadow: 
-            inset 0 2px 3px rgba(255, 255, 255, 0.4), 
-            inset 0 -4px 10px rgba(0, 0, 0, 0.5), 
-            0 0 16px rgba(214, 48, 48, 0.6), 
-            0 4px 6px rgba(0, 0, 0, 0.6);
+        box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.4), inset 0 -4px 10px rgba(0, 0, 0, 0.5), 0 0 16px rgba(214, 48, 48, 0.6), 0 4px 6px rgba(0, 0, 0, 0.6);
     }
 }
 .cpu-core-throttle {
