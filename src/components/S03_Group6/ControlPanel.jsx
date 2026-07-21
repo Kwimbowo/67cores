@@ -52,7 +52,7 @@ export default function ControlPanel({onChange, defaultCores = 4, defaultClock =
             <Row label="Clock Speed (GHz)" clickKey="Clock Speed" onClick={handleToggle} isActive={selectedTerm === "Clock Speed"}>
                 <Slider
                     min={1.0}
-                    max={5.5}
+                    max={4.5}
                     step={0.1}
                     value={clock}
                     onChange={handleClock}
