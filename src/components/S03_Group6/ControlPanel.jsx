@@ -97,7 +97,8 @@ function Row({ label, children }) {
 }
 
 function Slider({ min, max, step, value, onChange, display }) {
-  const percentage = ((value - min) / (max - min)) * 100;
+  const percentage = Math.max(0, Math.min(100, ((Number(value) - Number(min)) / (Number(max) - Number(min))) * 100));
+
   return (
       <div style={styles.sliderGroup}>
         <input
@@ -105,8 +106,9 @@ function Slider({ min, max, step, value, onChange, display }) {
             min={min}
             max={max}
             step={step}
-            value={value}
+            value={String(value)}
             onChange={onChange}
+            autoComplete="off"
             style={{
               ...styles.slider,
               background: `linear-gradient(90deg, 
