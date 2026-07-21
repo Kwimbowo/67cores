@@ -10,6 +10,10 @@
     --radiusS: 4px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html:has(.multicore-exhibit) {
     background-color: var(--bg1S) !important;
     background-image: 
